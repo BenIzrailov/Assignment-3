@@ -4,7 +4,9 @@ let colorSelected;
 
 //Adds a row
 function addR() {
-    alert("Clicked Add Row")
+    let newRow = document.getElementById("grid").insertRow(-1);
+    let newCell = newRow.insertCell(0);
+
 }
 //Adds a column
 function addC() {
