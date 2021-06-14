@@ -4,13 +4,26 @@ let colorSelected;
 
 //Adds a row
 function addR() {
-    let newRow = document.getElementById("grid").insertRow(-1);
-    let newCell = newRow.insertCell(0);
-
+    var table = document.getElementById("grid");
+    var row = table.insertRow(table.rows.length);
+    if(numRows == 0){
+    row.insertCell(-1);
+    }
+    if(numRows > 0){
+    for(var i = 0;i<table.rows[0].cells.length;i++){
+        row.insertCell(i);
+    }
+    }
+    numRows++;
 }
+
 //Adds a column
 function addC() {
-    alert("Clicked Add Col")
+    var table = document.getElementById("grid");
+    for (var i = 0; i < table.rows.length; i++) {
+        table.rows[i].insertCell(table.rows[i].cells.length);
+    }
+    numCols++;
 }
 
 //Removes a row
