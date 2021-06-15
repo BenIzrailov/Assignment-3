@@ -59,5 +59,5 @@ function clearAll(){
 }
 
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    alert("Clicked Fill All Uncolored");
 }
