@@ -50,18 +50,12 @@ function selected(){
 
 //fill in all squares by selected color
 function fill(){
-    let table = document.getElementById("grid");
-    for (var i = 0; i < table.rows.length; i++) {    
-        table.rows[i].style.backgroundColor = colorSelected;
-        }
+    let table = document.querySelectorAll("td").forEach(td=> td.style.backgroundColor = document.getElementById("selectedID").value);
 }
 
 //clear all color and return to white
 function clearAll(){
-    let table = document.getElementById("grid");
-    for (var i = 0; i < table.rows.length; i++) {    
-        table.rows[i].style.backgroundColor = "White";
-        }
+    let table = document.querySelectorAll("td").forEach(td=> td.style.backgroundColor = "white");
 }
 
 function fillU(){
