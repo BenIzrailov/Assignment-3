@@ -3,6 +3,7 @@ let numCols = 0;
 let colorSelected; 
 
 //Adds a row
+//grabs table and inserts cell by row auto filling by previous row length
 function addR() {
     var table = document.getElementById("grid");
     var table_row = table.insertRow(table.rows.length);
@@ -18,6 +19,7 @@ function addR() {
 }
 
 //Adds a column
+//iterates and inserts adjacent cell to each row
 function addC() {
     var table = document.getElementById("grid");
     for (var i = 0; i < table.rows.length; i++) {
@@ -30,6 +32,7 @@ function addC() {
 function removeR() {
     let table = document.getElementById("grid");
     table.deleteRow(table.rows.length - 1);
+    numRows--;
 }
 //Remove a column
 function removeC() {
@@ -37,6 +40,7 @@ function removeC() {
     for (i = 0; i < table.rows.length; i++) {
             table.rows[i].deleteCell(table.rows[i].cells.length - 1);
         }
+    numCols--;
 }
 //sets global var for selected color
 function selected(){
@@ -44,12 +48,20 @@ function selected(){
     console.log(colorSelected);
 }
 
+//fill in all squares by selected color
 function fill(){
-    alert("Clicked Fill All")
+    let table = document.getElementById("grid");
+    for (var i = 0; i < table.rows.length; i++) {    
+        table.rows[i].style.backgroundColor = colorSelected;
+        }
 }
 
+//clear all color and return to white
 function clearAll(){
-    alert("Clicked Clear All")
+    let table = document.getElementById("grid");
+    for (var i = 0; i < table.rows.length; i++) {    
+        table.rows[i].style.backgroundColor = "White";
+        }
 }
 
 function fillU(){
