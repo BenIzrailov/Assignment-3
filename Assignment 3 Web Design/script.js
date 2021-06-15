@@ -5,13 +5,13 @@ let colorSelected;
 //Adds a row
 function addR() {
     var table = document.getElementById("grid");
-    var row = table.insertRow(table.rows.length);
+    var table_row = table.insertRow(table.rows.length);
     if(numRows == 0){
-    row.insertCell(-1);
+    table_row.insertCell(-1);
     }
     if(numRows > 0){
     for(var i = 0;i<table.rows[0].cells.length;i++){
-        row.insertCell(i);
+        table_row.insertCell(i);
     }
     }
     numRows++;
@@ -28,11 +28,12 @@ function addC() {
 
 //Removes a row
 function removeR() {
-    alert("Clicked Remove Row")
+    let table = document.getElementById("grid");
+    table.deleteRow(table.rows.length - 1);
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    
 }
 //sets global var for selected color
 function selected(){
