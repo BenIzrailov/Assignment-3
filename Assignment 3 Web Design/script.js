@@ -33,7 +33,10 @@ function removeR() {
 }
 //Remove a column
 function removeC() {
-    
+    let table = document.getElementById("grid");
+    for (i = 0; i < table.rows.length; i++) {
+            table.rows[i].deleteCell(table.rows[i].cells.length - 1);
+        }
 }
 //sets global var for selected color
 function selected(){
