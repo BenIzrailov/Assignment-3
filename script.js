@@ -8,11 +8,17 @@ function addR() {
     var table = document.getElementById("grid");
     var table_row = table.insertRow(table.rows.length);
     if(numRows == 0){
-    table_row.insertCell(-1);
+    cell = table_row.insertCell(-1);
+    cell.onclick = function(){
+        this.style.backgroundColor = colorSelected;
+    };
     }
     if(numRows > 0){
     for(var i = 0;i<table.rows[0].cells.length;i++){
-        table_row.insertCell(i);
+        cell = table_row.insertCell(i);
+        cell.onclick = function(){
+            this.style.backgroundColor = colorSelected;
+        };
     }
     }
     numRows++;
@@ -23,7 +29,10 @@ function addR() {
 function addC() {
     var table = document.getElementById("grid");
     for (var i = 0; i < table.rows.length; i++) {
-        table.rows[i].insertCell(table.rows[i].cells.length);
+        cell = table.rows[i].insertCell(table.rows[i].cells.length);
+        cell.onclick = function(){
+            this.style.backgroundColor = colorSelected;
+        };
     }
     numCols++;
 }
@@ -45,8 +54,16 @@ function removeC() {
 //sets global var for selected color
 function selected(){
     colorSelected = document.getElementById("selectedID").value;
-    console.log(colorSelected);
+    console.log(colorSelected);   
+
+    let table = document.querySelectorAll("td");
+    table.addEventListener("click",() =>{
+    td.style.backgroundColor = document.getElementById("selectedID").value;
+});
 }
+
+
+
 
 //fill in all squares by selected color
 function fill(){
